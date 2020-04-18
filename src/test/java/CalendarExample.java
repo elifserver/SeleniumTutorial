@@ -18,7 +18,7 @@ public class CalendarExample {
     @Before
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
-           System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
+           //System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
         driver = new ChromeDriver();
 //        //</editor-fold>
 
@@ -43,29 +43,6 @@ public class CalendarExample {
         driver.findElement(By.xpath("//div[contains(@class,'activecalendar')]//div[@class='content-holder'][contains(text(),'16')]")).click();
         String returnDate = driver.findElement(By.xpath("//div[contains(@class,'activecalendar')]//div[@class='content-holder'][contains(text(),'16')]//parent::div")).getAttribute("data-date");
         System.out.println("returnDate :::" + returnDate);
-    }
-
-    @Test
-    public void toBeDeleted() {
-
-        String pageTitle;
-
-        driver.get("http://facebook.com");
-        driver.manage().window().maximize();
-        driver.findElement(By.name("email")).sendKeys("e@e.com");
-        //driver.findElement((By.className("login_form_login_button uiButton uiButtonConfirm")));
-        driver.findElement(By.xpath("//label[contains(@class,'uiButtonConfirm')]")).click();
-        //driver.findElement(By.className("uiButtonConfirm")).click();
-        pageTitle = driver.getTitle();
-        //Assert.assertTrue(pageTitle.equals("Log in to Facebook | Facebook"));
-        //Assert.assertTrue(pageTitle.equals("Facebook – log in or sign up"));
-    }
-
-    @Test
-    public void toBeDeleted2() {
-        driver.get("https://www.travelup.com/en-gb");
-        driver.findElement(By.id("txtFlightDestinationAirport")).sendKeys("Ankara");
-
     }
 
     @Test
