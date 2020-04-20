@@ -41,6 +41,7 @@ public class WebElementBasics {
         driver.manage().window().maximize();
         enabled = driver.findElement(By.xpath("//option[contains(text(),'Select your pronoun')]")).isEnabled();
         System.out.println("Is Pronoun selection header enabled or disabled = " + enabled);
+
         enabled = driver.findElement(By.xpath("//option[contains(text(),'Select your pronoun')]//following-sibling::option[1]")).isEnabled();
         System.out.println("Is Pronoun selection - first option after header enabled or disabled = " + enabled);
     }
@@ -52,6 +53,7 @@ public class WebElementBasics {
 
         enabled = driver.findElement(By.name("countryCodeIntl")).isEnabled();
         System.out.println("International Country Code = " + (enabled == false ? "disabled" : "enabled"));
+
         Boolean displayed = driver.findElement(By.name("countryCodeIntl")).isDisplayed();
         System.out.println("International Country Code = " + (displayed == false ? "not visible" : "visible"));
     }
@@ -60,16 +62,22 @@ public class WebElementBasics {
     public void testYahoo_PresenceExample() throws Exception {
         driver.get("https://login.yahoo.com/");
         driver.manage().window().maximize();
-
+/**
+ * Locator name misspelled - Webelements
+ */
         List<WebElement> elementList1 = driver.findElements(By.name("countryCodeIntl"));
         List<WebElement> elementList2 = driver.findElements(By.name("countryCodeInt")); //  element name misspelled
         System.out.println(elementList1.size() == 0 ? "not present" : "present");
         System.out.println(elementList2.size() == 0 ? "not present" : "present");
 
+        /**
+         * Locator name misspelled - Webelements
+         */
         WebElement element1 = driver.findElement(By.id("login-username"));
         System.out.println(element1.isDisplayed() ? "present" : "not present");
-//        WebElement element1 = driver.findElement(By.id("login-usernam"));  //id misspelled
-//        System.out.println(element1.isDisplayed() ? "present" : "not present");
+
+     // WebElement element1 = driver.findElement(By.id("login-usernam"));  //id misspelled
+     //System.out.println(element1.isDisplayed() ? "present" : "not present");
     }
 
 
@@ -117,7 +125,6 @@ public class WebElementBasics {
         driver.get("https://www.techlistic.com/p/selenium-practice-form.html");
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.xpath("//input[@name='firstname']"));
-
         element.sendKeys("Elif");
         Thread.sleep(1000);
         element.sendKeys(Keys.BACK_SPACE);
@@ -127,6 +134,7 @@ public class WebElementBasics {
         element.sendKeys(Keys.COMMAND,"a",Keys.BACK_SPACE);
         Thread.sleep(1000);
         element.sendKeys("Server");
+
     }
 
     @After

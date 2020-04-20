@@ -66,6 +66,7 @@ WebDriver driver;
 
     @Test
     public void checkBoxSelection() throws InterruptedException {
+
         List<WebElement> toolsList = driver.findElements(By.xpath("//input[@type='checkbox'][@name='tool']"));
 
         for(int i =0; i < toolsList.size() - 1; i++)  //Attention: I am not going till the end of the toolsList
@@ -73,6 +74,11 @@ WebDriver driver;
             toolsList.get(i).click();
             Thread.sleep(1000);
         }
+
+        /**
+         * Now I will be checking the unchecked boxes
+         */
+
 //
 //        for (WebElement tool:toolsList
 //             ) {
