@@ -41,7 +41,7 @@ public class DatePickerExample {
     @Test
     public void calendarExample_Travelup() throws Exception {
 //Calendar is handled with DIV tags
-        String dateForSearch = "16";
+        String dateForSearch = "27";
         driver.get("https://www.travelup.com/en-gb");
         driver.manage().window().maximize();
         driver.findElement(By.id("txtFlightReturnDate")).click();
@@ -63,6 +63,8 @@ public class DatePickerExample {
 
         //Disabled is not an attribute on DOM. It is only a value for class attribute. So the code below will not be working....
         System.out.println("Is the test date active - (checked with practical way):: -------->" + calendarDateHolder.isEnabled());
+
+        dateToClickOnCalendar.click();
     }
 
     @Test
@@ -71,16 +73,21 @@ public class DatePickerExample {
         //we have 2 datepicker. That's why we need to mention which months we want to choose
         //Tag used for Month name showing is a sibling of the <tbody> tag where we have all the buttons we need
         DateFormat dateFormat = new SimpleDateFormat("MMM yyyy");
-        Date dat = new Date();
-        System.out.println(dateFormat.format(dat));
+        Date thisMonth = new Date();
+        System.out.println(dateFormat.format(thisMonth));
 
         driver.get("https://www.expedia.co.uk/");
         driver.manage().window().maximize();
+        driver.findElement(By.id("mad-client-gdpr-banner-button")).click();
         WebElement d = driver.findElement(By.id("hotel-checkin-hp-hotel"));
         d.click();
 
         List<WebElement> dates = driver.findElements(By.xpath("//table[@class='datepicker-cal-weeks']/caption[contains(text()," +
                 "'Apr 2020')]//following-sibling::tbody/tr/td/button"));
+
+
+      //  List<WebElement> dates = driver.findElements(By.xpath("//table[@class='datepicker-cal-weeks']/caption[contains(text(),'"+thisMonth+"')]//following-sibling::tbody/tr/td/button"));
+
         for (WebElement date : dates
         ) {
             System.out.println(date.isEnabled() ? date.getText() + "--> ENABLED" : date.getText() + "--> disabled");

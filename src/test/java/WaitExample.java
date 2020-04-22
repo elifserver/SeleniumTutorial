@@ -25,7 +25,7 @@ public class WaitExample {
 //        //</editor-fold>
 
         //<editor-fold desc="FIREFOX">
-        System.setProperty("webdriver.gecko.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/geckodriver");
+       // System.setProperty("webdriver.gecko.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/geckodriver");
         driver = new FirefoxDriver();
         //</editor-fold>
 
@@ -44,17 +44,18 @@ public class WaitExample {
         //JavascriptExecutor js = (JavascriptExecutor) driver;
         // js.executeScript("window.scrollBy(0,1000)");
 
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         driver.findElement(By.xpath("//input[@name='q']\n")).sendKeys("Techlistic" + Keys.ENTER);
 
-        List<WebElement> results = driver.findElements(By.xpath("//div[@class='rc']//div[@class='r']//h3[@class='LC20lb DKV0Md']"));
-        results.get(0).click();
+        List<WebElement> results = driver.findElements(By.xpath("//h3[@class='LC20lb DKV0Md']"));
+
         for (int i = 0; i < results.size(); i++
         ) {
             text = results.get(i).getText();
             System.out.println("result text for index = " + i + " ---> " + text);
         }
+        results.get(0).click();
     }
 
     @Test
