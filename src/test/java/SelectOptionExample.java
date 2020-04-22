@@ -20,7 +20,7 @@ public class SelectOptionExample {
         //</editor-fold>
 
         //<editor-fold desc="FIREFOX">
-        System.setProperty("webdriver.gecko.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/geckodriver");
+        //System.setProperty("webdriver.gecko.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/geckodriver");
         driver = new FirefoxDriver();
         //</editor-fold>
 

@@ -30,8 +30,28 @@ public class DropdownExample {
     }
 
     @Test
-    public void DropdownAutoComplete() {
+    public void DropdownAutoComplete() throws InterruptedException {
+        String textToFind = "Istanbul Ataturk Airport\nIST";
+        String partialText = "IST";
 
+        driver.navigate().to("https://www.travelup.com/en-gb");
+        WebElement element = driver.findElement(By.id("txtFlightDestinationAirport"));
+        element.sendKeys(partialText);
+
+        WebElement ulElement = driver.findElement(By.id("ui-id-2"));
+        Thread.sleep(2000);
+        String innerHTML = ulElement.getAttribute("innerHTML"); //IMPORTANT:::InnerHTML
+        System.out.println(innerHTML);
+
+        List<WebElement> liElementList = ulElement.findElements(By.tagName("li")); //IMPORTANT elementin icinde aramaca
+        for (WebElement e:liElementList
+             ) {
+            if(e.getText().contains(textToFind))
+            {
+                e.click();
+            }
+            System.out.println(e.getText() + "\n");
+        }
     }
 
 

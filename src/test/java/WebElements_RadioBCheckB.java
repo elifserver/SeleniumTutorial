@@ -16,8 +16,8 @@ WebDriver driver;
     @Before
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
-           System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
-          driver = new ChromeDriver();
+          // System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
+         driver = new ChromeDriver();
 //        //</editor-fold>
 
         //<editor-fold desc="FIREFOX">
@@ -75,18 +75,14 @@ WebDriver driver;
             Thread.sleep(1000);
         }
 
-        /**
-         * Now I will be checking the unchecked boxes
-         */
 
-//
-//        for (WebElement tool:toolsList
-//             ) {
-//            if(!tool.isSelected()) {
-//                tool.click();
-//                Thread.sleep(500);
-//            }
-//        }
+        for (WebElement tool:toolsList
+             ) {
+            if(!tool.isSelected()) {
+                tool.click();
+                Thread.sleep(500);
+            }
+        }
 
 
     }

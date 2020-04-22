@@ -51,7 +51,7 @@ public class SwichWindowExample {
     @Test
     public void IFrameExample() throws Exception {
 /**
- * without Parent handle definition
+ * with Parent handle definition
  */
         driver.get("https://demoqa.com/iframe-practice-page/");
         driver.manage().window().maximize();

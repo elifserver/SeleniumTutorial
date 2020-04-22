@@ -1,10 +1,7 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -21,12 +18,12 @@ public class WebElementBasics {
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
 //        System.setProperty("webdriver.chrome.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
-//        driver = new ChromeDriver();
+        driver = new ChromeDriver();
 ////        //</editor-fold>
 
         //<editor-fold desc="FIREFOX">
         //System.setProperty("webdriver.gecko.driver", "/Users/elifalp/Documents/WS_Selenium/drivers/geckodriver");
-        driver = new FirefoxDriver();
+       // driver = new FirefoxDriver();
 //        //</editor-fold>
 
         //<editor-fold desc="SAFARI">
@@ -54,8 +51,7 @@ public class WebElementBasics {
         enabled = driver.findElement(By.name("countryCodeIntl")).isEnabled();
         System.out.println("International Country Code = " + (enabled == false ? "disabled" : "enabled"));
 
-        Boolean displayed = driver.findElement(By.name("countryCodeIntl")).isDisplayed();
-        System.out.println("International Country Code = " + (displayed == false ? "not visible" : "visible"));
+
     }
 
     @Test
@@ -124,13 +120,17 @@ public class WebElementBasics {
     public void ClearInputBox() throws Exception {
         driver.get("https://www.techlistic.com/p/selenium-practice-form.html");
         driver.manage().window().maximize();
+        driver.findElement(By.id("cookieChoiceDismiss")).click();
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("window.scrollBy(0, 500);");
+
         WebElement element = driver.findElement(By.xpath("//input[@name='firstname']"));
         element.sendKeys("Elif");
         Thread.sleep(1000);
-        element.sendKeys(Keys.BACK_SPACE);
+        element.sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE);
         Thread.sleep(1000);
-//       element.sendKeys(Keys.COMMAND, "a");
-//       element.sendKeys(Keys.DELETE);
+     //element.sendKeys(Keys.COMMAND, "a");
+    //element.sendKeys(Keys.DELETE);
         element.sendKeys(Keys.COMMAND,"a",Keys.BACK_SPACE);
         Thread.sleep(1000);
         element.sendKeys("Server");
