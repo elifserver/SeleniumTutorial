@@ -6,8 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import utilities.BrowserUtils;
 
+import java.io.IOException;
 import java.util.List;
 
 public class WebTables {
@@ -16,7 +19,8 @@ WebDriver driver;
     @Before
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
+//        System.setProperty("webdriver.chrome.driver","/Users/acelik/Desktop/Work/chromedriver");
+        System.setProperty("webdriver.chrome.driver","driver/chromedriver");
          driver = new ChromeDriver();
 //        //</editor-fold>
 
@@ -41,7 +45,7 @@ WebDriver driver;
         WebElement table = driver.findElement(By.id("example"));
         String wholeTable = table.getText();
         //verify that Nixon is in the table.
-        Assert.assertTrue(wholeTable.contains("Nixon"),"I am looking NIXON is in the table but could not find");
+        Assert.assertTrue(wholeTable.contains("Nixxon"),"I am looking NIXON is in the table but could not find");
 //        Thread.sleep(6000);
     }
 
@@ -146,7 +150,7 @@ WebDriver driver;
     }
 
     @Test
-    public void calculateAvarageAge(){
+    public void calculateAvarageAge() throws IOException {
         int totalAge = 0, age=0, avarageAge=0;
         //number of rows
         int rowNumber = getNumberOfRows();

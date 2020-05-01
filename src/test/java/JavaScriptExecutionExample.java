@@ -16,7 +16,7 @@ public class JavaScriptExecutionExample {
     @Before
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
-        //  System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
+          System.setProperty("webdriver.chrome.driver","/drivers/chromedriver");
         driver = new ChromeDriver();
 //        //</editor-fold>
 
