@@ -1,5 +1,5 @@
 Feature: Skyscanner main page test
-
+@Ignore
   Scenario: user fill the form of flights
     Given user views skyscanner_page
     When user clicks ONE_WAY
@@ -12,4 +12,6 @@ Feature: Skyscanner main page test
     And user clicks DIRECT_FLIGHT
     Then user clicks SEARCH_BUTTON
     And user should see flight options
+
+
 

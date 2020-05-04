@@ -1,3 +1,5 @@
+package steps;
+
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,30 +17,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class MyStepdefs {
-    WebDriver driver;
+public class MyStepdefs extends Base {
+   // WebDriver driver;
 
     @Before
     public  void setup() {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
-        driver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+        Base.driver = new ChromeDriver();
     }
 
     public WebElement waitForPresence(By by){
-        WebDriverWait wait=new WebDriverWait(driver,10);
+        WebDriverWait wait=new WebDriverWait(Base.driver,10);
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     @After
     public  void quit() throws InterruptedException {
         Thread.sleep(3000);
-        driver.quit();
+        Base.driver.quit();
     }
 
 
     @Given("user views skyscanner_page")
     public void userViewsSkyscanner_page() {
-        driver.navigate().to("https://www.skyscanner.net/flights");
+        Base.driver.navigate().to("https://www.skyscanner.net/flights");
 
     }
 
@@ -56,7 +58,7 @@ public class MyStepdefs {
     @And("user clicks LONDON_STANDON")
     public void userClicksLONDON_STANDON() {
         WebElement fromList = waitForPresence(By.id("react-autowhatever-fsc-origin-search"));
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Base.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         fromList.findElement(By.xpath("//span[contains(text(),'don Stan')]")).click();
     }
 
@@ -68,7 +70,7 @@ public class MyStepdefs {
     @And("user clicks Barcelona")
     public void userClicksBarcelona() {
         WebElement toList = waitForPresence(By.id("react-autowhatever-fsc-destination-search"));
-        driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
+        Base.driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
         toList.findElement(By.xpath("//span[contains(text(),'BCN')]")).click();
     }
 
@@ -97,5 +99,6 @@ public class MyStepdefs {
     public void userShouldSeeFlightOptions() {
 
     }
+
 
 }
