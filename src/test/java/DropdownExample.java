@@ -1,3 +1,4 @@
+import com.relevantcodes.extentreports.ExtentReports;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class DropdownExample {
     WebDriver driver;
-
+    ExtentReports report;
     @Before
     public void setUp() throws Exception {
         //<editor-fold desc="CHROME">
@@ -27,6 +28,7 @@ public class DropdownExample {
         //System.setProperty("webdriver.chrome.driver","/Users/elifalp/Documents/WS_Selenium/drivers/chromedriver");
         //driver = new SafariDriver();
         //</editor-fold>
+        report = new ExtentReports("//Users/elifalp/Desktop/report.html");
     }
 
     @Test
@@ -62,5 +64,6 @@ public class DropdownExample {
         Thread.sleep(5000);
 
         driver.quit();
+        report.flush();
     }
 }
