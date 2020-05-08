@@ -1,9 +1,13 @@
 import org.junit.Test;
 import org.openqa.selenium.By;
-import steps.Base;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CSSExample extends Base {
+public class CSSExample {
     String text;
+    WebDriver driver = new ChromeDriver();
+
     @Test
     public void CSSTest()  {
         driver.get("https://www.facebook.com/login/");

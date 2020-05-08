@@ -20,4 +20,5 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
+    compile group: 'com.relevantcodes', name: 'extentreports', version: '2.40.2'
 }
