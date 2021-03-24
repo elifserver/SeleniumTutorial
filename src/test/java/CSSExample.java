@@ -21,4 +21,13 @@ public class CSSExample {
         text = driver.findElement(By.cssSelector("h1[class$='navbar-brand']")).getAttribute("");
         System.out.println(text);
     }
+
+    @Test
+    public void name1() {
+        driver.get("https://www.travelup.com/en-gb");
+        text = driver.findElement(By.cssSelector("h1[class$='navbar-brand']")).getAttribute("");
+        System.out.println(text);
+    }
+
+
 }
